@@ -1,4 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#2563eb"/>
-  <text x="16" y="22" text-anchor="middle" fill="white" font-family="system-ui" font-size="16" font-weight="bold">SC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#4285F4"/>
+
+  <!-- Headphone band - raised higher for margin above dollar -->
+  <path d="M28 62 C28 20, 100 20, 100 62"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="7"
+        stroke-linecap="round"/>
+
+  <!-- Left ear cup -->
+  <rect x="18" y="54" width="14" height="26" rx="7" fill="#FFFFFF"/>
+
+  <!-- Right ear cup -->
+  <rect x="96" y="54" width="14" height="26" rx="7" fill="#FFFFFF"/>
+
+  <!-- Dollar sign - the "head" with space from band -->
+  <!-- Vertical line -->
+  <line x1="64" y1="48" x2="64" y2="98"
+        stroke="#FFFFFF"
+        stroke-width="5"
+        stroke-linecap="round"/>
+
+  <!-- S-curve of dollar sign -->
+  <path d="M78 60
+           C78 52, 72 48, 64 48
+           C54 48, 48 54, 48 62
+           C48 70, 54 74, 64 76
+           C74 78, 80 82, 80 90
+           C80 98, 72 102, 64 102
+           C54 102, 48 96, 48 90"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 </svg>
