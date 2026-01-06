@@ -4,31 +4,20 @@ import Header from '../components/Header.astro'
 import Hero from '../components/Hero.astro'
 import Features from '../components/Features.astro'
 import Pricing from '../components/Pricing.astro'
+import HowItWorks from '../components/HowItWorks.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <Layout
-  title="Sales Copilot - AI-Powered Sales Call Assistant"
-  description="Get real-time AI suggestions during your sales calls. Works with Google Meet, Zoom, and Microsoft Teams. Try free today."
+  title="Sales Copilot - AI Copilot for Technical Sales"
+  description="AI copilot for pre-sales engineers and solutions architects. Real-time suggestions during calls, automated meeting prep, and auto-generated demo code."
 >
   <Header />
   <main>
     <Hero />
     <Features />
+    <HowItWorks />
     <Pricing />
-
-    <!-- Placeholder for HowItWorks -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">How it Works</h2>
-        <p class="text-gray-500">Coming soon...</p>
-      </div>
-    </section>
   </main>
-
-  <!-- Basic footer placeholder -->
-  <footer class="bg-gray-900 text-gray-400 py-8">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p>&copy; 2026 Sales Copilot. All rights reserved.</p>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
