@@ -36,6 +36,20 @@ const canonicalURL = canonical || Astro.url.href
     <link rel="icon" type="image/png" href="/icon.png" />
 
     <title>{title}</title>
+
+    <!-- OpenPanel Analytics -->
+    <script define:vars={{ clientId: import.meta.env.PUBLIC_OPENPANEL_CLIENT_ID }}>
+      if (clientId) {
+        import('@openpanel/web').then(({ OpenPanel }) => {
+          const op = new OpenPanel({
+            clientId,
+            trackScreenViews: true,
+            trackOutgoingLinks: true,
+          })
+          window.op = op
+        })
+      }
+    </script>
   </head>
   <body class="min-h-screen bg-white text-gray-900 antialiased">
     <slot />
