@@ -12,17 +12,17 @@ const features = [
   },
   {
     title: 'Knowledge Graph',
-    description: 'Your product knowledge, API docs, and integration patterns organized for instant retrieval during calls.',
+    description: 'Your product knowledge, docs, and specs organized for instant retrieval during calls.',
     icon: 'graph',
   },
   {
     title: 'Auto Demo Generation',
-    description: 'After calls, AI generates working demo code tailored to prospect needs. They deploy it same day.',
+    description: 'After calls, AI generates working demos tailored to prospect needs. They can try it the same day.',
     icon: 'code',
   },
   {
-    title: 'Custom RAG Pipelines',
-    description: 'Per-client analysis pipelines that integrate with your CRM, dashboards, and existing workflows.',
+    title: 'Smart Integrations',
+    description: 'Connect with your CRM, dashboards, and existing workflows. Per-client analysis out of the box.',
     icon: 'workflow',
   },
   {
@@ -46,18 +46,18 @@ const icons: Record<string, string> = {
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Built for Engineers Who Sell
+        Built for Technical Sales
       </h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Before, during, and after every call. From briefing to working demo code.
+        Before, during, and after every call. From briefing to working demo.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature) => (
         <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <Fragment set:html={icons[feature.icon]} />
             </svg>
           </div>

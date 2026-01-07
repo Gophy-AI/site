@@ -15,7 +15,7 @@ const steps = [
   {
     number: '03',
     title: 'After the Call',
-    description: 'AI generates working demo code tailored to the prospect\'s requirements. They can deploy it the same day. You follow up with something real.',
+    description: 'AI generates working demos tailored to the prospect\'s requirements. They can try it the same day. You follow up with something real.',
     icon: 'code',
   },
 ]
@@ -42,15 +42,15 @@ const icons: Record<string, string> = {
       {steps.map((step, index) => (
         <div class="relative">
           {index < steps.length - 1 && (
-            <div class="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-blue-200" />
+            <div class="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-brand-200" />
           )}
           <div class="relative bg-white p-8 rounded-2xl shadow-sm text-center">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div class="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <Fragment set:html={icons[step.icon]} />
               </svg>
             </div>
-            <span class="text-sm font-bold text-blue-600 tracking-wider">{step.number}</span>
+            <span class="text-sm font-bold text-brand-500 tracking-wider">{step.number}</span>
             <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">{step.title}</h3>
             <p class="text-gray-600 leading-relaxed">{step.description}</p>
           </div>
@@ -63,7 +63,7 @@ const icons: Record<string, string> = {
         href="https://chrome.google.com/webstore"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
+        class="inline-flex items-center justify-center gap-2 bg-brand-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
       >
         Get Started Free
       </a>

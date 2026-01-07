@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Brand colors - aligned with icon */
+@theme {
+  --color-brand-50: #EBF3FE;
+  --color-brand-100: #D3E4FD;
+  --color-brand-200: #A8C7FA;
+  --color-brand-500: #4285F4;
+  --color-brand-600: #3B78E0;
+  --color-brand-700: #2E6AC7;
+}
