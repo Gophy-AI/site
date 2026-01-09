@@ -8,23 +8,23 @@
         Simple, Transparent Pricing
       </h2>
       <p class="text-xl text-gray-600">
-        Start free, scale as you close more deals.
+        Start free, upgrade when you're ready.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
       <!-- Free Tier -->
-      <div class="border border-gray-200 rounded-2xl p-8 bg-white">
+      <div class="border border-gray-200 rounded-2xl p-8 bg-white flex flex-col">
         <div class="mb-6">
           <h3 class="text-2xl font-bold text-gray-900">Free</h3>
           <p class="text-gray-600 mt-1">Try it out</p>
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 h-24 flex items-start">
           <span class="text-5xl font-bold text-gray-900">$0</span>
         </div>
 
-        <ul class="space-y-4 mb-8">
+        <ul class="space-y-4 mb-8 flex-grow">
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -61,14 +61,14 @@
           href="https://chrome.google.com/webstore"
           target="_blank"
           rel="noopener noreferrer"
-          class="block w-full text-center border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+          class="block w-full text-center border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors mt-auto"
         >
           Get Started
         </a>
       </div>
 
       <!-- Pro Tier -->
-      <div class="border-2 border-brand-500 rounded-2xl p-8 bg-white relative">
+      <div class="border-2 border-brand-500 rounded-2xl p-8 bg-white relative flex flex-col">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2">
           <span class="bg-brand-500 text-white px-4 py-1 rounded-full text-sm font-medium">
             Launch Special
@@ -80,26 +80,16 @@
           <p class="text-gray-600 mt-1">For individuals</p>
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 h-24">
           <div class="flex items-baseline gap-2">
             <span class="text-5xl font-bold text-gray-900">€29</span>
-            <span class="text-gray-600">/first month</span>
+            <span class="text-gray-600">/mo</span>
+            <span class="text-gray-400 line-through text-lg">€89</span>
           </div>
-          <div class="mt-1">
-            <span class="text-gray-500 line-through">€89</span>
-            <span class="text-gray-600">/month after</span>
-          </div>
-          <div class="mt-2">
-            <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded text-sm font-medium">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/>
-              </svg>
-              Use code LAUNCH29
-            </span>
-          </div>
+          <p class="text-sm text-gray-500 mt-1">with code <button id="coupon-code" class="font-mono bg-gray-100 px-1.5 py-0.5 rounded hover:bg-gray-200 cursor-pointer transition-colors" title="Click to copy">LAUNCH29</button></p>
         </div>
 
-        <ul class="space-y-4 mb-8">
+        <ul class="space-y-4 mb-8 flex-grow">
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -136,25 +126,27 @@
           href="https://chrome.google.com/webstore"
           target="_blank"
           rel="noopener noreferrer"
-          class="block w-full text-center bg-brand-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
+          class="block w-full text-center bg-brand-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25 mt-auto"
         >
           Upgrade to Pro
         </a>
       </div>
 
       <!-- Enterprise Tier -->
-      <div class="border border-gray-200 rounded-2xl p-8 bg-white">
+      <div class="border border-gray-200 rounded-2xl p-8 bg-white flex flex-col">
         <div class="mb-6">
           <h3 class="text-2xl font-bold text-gray-900">Enterprise</h3>
-          <p class="text-gray-600 mt-1">For sales teams</p>
+          <p class="text-gray-600 mt-1">For teams</p>
         </div>
 
-        <div class="mb-6">
-          <span class="text-5xl font-bold text-gray-900">€300+</span>
-          <span class="text-gray-600">/month</span>
+        <div class="mb-6 h-24 flex items-start">
+          <div class="flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-gray-900">€300+</span>
+            <span class="text-gray-600">/mo</span>
+          </div>
         </div>
 
-        <ul class="space-y-4 mb-8">
+        <ul class="space-y-4 mb-8 flex-grow">
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -189,7 +181,7 @@
 
         <a
           href="mailto:sales@gophy.ai"
-          class="block w-full text-center border-2 border-brand-500 text-brand-500 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors"
+          class="block w-full text-center border-2 border-brand-500 text-brand-500 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors mt-auto"
         >
           Contact Sales
         </a>
@@ -197,3 +189,34 @@
     </div>
   </div>
 </section>
+
+<script>
+  const couponBtn = document.getElementById('coupon-code');
+  const originalText = couponBtn?.textContent;
+
+  couponBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('LAUNCH29');
+      if (couponBtn) {
+        couponBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          couponBtn.textContent = originalText || 'LAUNCH29';
+        }, 1500);
+      }
+    } catch {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = 'LAUNCH29';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      if (couponBtn) {
+        couponBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          couponBtn.textContent = originalText || 'LAUNCH29';
+        }, 1500);
+      }
+    }
+  });
+</script>

@@ -1,59 +1,76 @@
 ---
+const scopes = [
+  {
+    id: 'bizdev',
+    name: 'Business Dev',
+    description: 'Past conversations, objection handling, competitor mentions - all surfaced in real-time.',
+  },
+  {
+    id: 'architecture',
+    name: 'Architecture',
+    description: 'ADRs, system diagrams, tech debt discussions - instantly retrieved when you need them.',
+  },
+  {
+    id: 'project',
+    name: 'Project Mgmt',
+    description: 'Sprint commitments, blockers, dependencies - your copilot tracks it all.',
+  },
+  {
+    id: 'product',
+    name: 'Product Mgmt',
+    description: 'OKRs, PRDs, stakeholder priorities - always aligned with your goals.',
+  }
+];
 ---
 
 <section class="pt-32 pb-20 px-4">
   <div class="max-w-4xl mx-auto text-center">
-    <!-- Persona Toggle -->
-    <div class="inline-flex items-center gap-3 mb-8">
-      <span class="text-sm font-medium text-gray-500">Gophy for</span>
-      <div class="inline-flex bg-gray-100 rounded-lg p-1" role="tablist">
-        <button
-          id="toggle-engineers"
-          role="tab"
-          aria-selected="true"
-          class="px-4 py-2 rounded-md text-sm font-medium transition-all bg-white text-gray-900 shadow-sm cursor-pointer"
-        >
-          Engineers
-        </button>
-        <button
-          id="toggle-bizdev"
-          role="tab"
-          aria-selected="false"
-          class="px-4 py-2 rounded-md text-sm font-medium transition-all text-gray-600 hover:text-gray-900 cursor-pointer"
-        >
-          Business Development
-        </button>
+    <!-- Main Headline -->
+    <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
+      Your AI
+      <span class="text-brand-500">Meeting Copilot</span>
+    </h1>
+
+    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+      It remembers what you discussed. Past decisions, context, people - surfaced exactly when you need them.
+    </p>
+
+    <!-- Scope Tabs -->
+    <div class="mb-8">
+      <div class="inline-flex flex-wrap justify-center bg-gray-100 rounded-lg p-1" role="tablist">
+        {scopes.map((scope, index) => (
+          <button
+            id={`toggle-${scope.id}`}
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            class:list={[
+              'px-4 py-2 rounded-md text-sm font-medium transition-all cursor-pointer',
+              index === 0
+                ? 'bg-white text-gray-900 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900'
+            ]}
+          >
+            {scope.name}
+          </button>
+        ))}
       </div>
     </div>
 
-    <!-- Engineers Content -->
-    <div id="content-engineers" class="block">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-        You Know the Tech.
-        <span class="text-brand-500">We Help You Close.</span>
-      </h1>
-
-      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-        AI copilot for pre-sales engineers and solutions architects.
-        Real-time suggestions during calls. Auto-generated demos after.
-        Focus on the technical discussion, not the sales pitch.
-      </p>
+    <!-- Scope Content -->
+    <div class="h-16 mb-10">
+      {scopes.map((scope, index) => (
+        <div
+          id={`content-${scope.id}`}
+          class:list={[
+            index === 0 ? 'block' : 'hidden'
+          ]}
+        >
+          <p class="text-lg text-gray-600 max-w-xl mx-auto">{scope.description}</p>
+        </div>
+      ))}
     </div>
 
-    <!-- BizDev Content -->
-    <div id="content-bizdev" class="hidden">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-        You Know the Deal.
-        <span class="text-brand-500">We Help You Demo.</span>
-      </h1>
-
-      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-        AI copilot for business development and sales teams.
-        Sound technical in every call. Get AI-generated demos without writing code.
-        Close deals with confidence, even without an engineering background.
-      </p>
-    </div>
-
+    <!-- CTAs -->
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
         href="https://chrome.google.com/webstore"
@@ -61,19 +78,13 @@
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2 bg-brand-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
       >
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.006zM12 16.364a4.364 4.364 0 1 0 0-8.728 4.364 4.364 0 0 0 0 8.728z"/>
-        </svg>
-        Install for Chrome - Free
+Get Started Free
       </a>
       <a
         href="#how-it-works"
-        class="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors"
+        class="inline-flex items-center justify-center border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors"
       >
         See How it Works
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-        </svg>
       </a>
     </div>
 
@@ -84,41 +95,30 @@
 </section>
 
 <script>
-  const toggleEngineers = document.getElementById('toggle-engineers');
-  const toggleBizdev = document.getElementById('toggle-bizdev');
-  const contentEngineers = document.getElementById('content-engineers');
-  const contentBizdev = document.getElementById('content-bizdev');
+  const scopes = ['bizdev', 'architecture', 'project', 'product'];
 
-  function setActiveTab(isEngineers: boolean) {
-    if (isEngineers) {
-      toggleEngineers?.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
-      toggleEngineers?.classList.remove('text-gray-600');
-      toggleEngineers?.setAttribute('aria-selected', 'true');
+  function setActiveScope(activeId: string) {
+    scopes.forEach(id => {
+      const toggle = document.getElementById(`toggle-${id}`);
+      const content = document.getElementById(`content-${id}`);
 
-      toggleBizdev?.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
-      toggleBizdev?.classList.add('text-gray-600');
-      toggleBizdev?.setAttribute('aria-selected', 'false');
-
-      contentEngineers?.classList.remove('hidden');
-      contentEngineers?.classList.add('block');
-      contentBizdev?.classList.add('hidden');
-      contentBizdev?.classList.remove('block');
-    } else {
-      toggleBizdev?.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
-      toggleBizdev?.classList.remove('text-gray-600');
-      toggleBizdev?.setAttribute('aria-selected', 'true');
-
-      toggleEngineers?.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
-      toggleEngineers?.classList.add('text-gray-600');
-      toggleEngineers?.setAttribute('aria-selected', 'false');
-
-      contentBizdev?.classList.remove('hidden');
-      contentBizdev?.classList.add('block');
-      contentEngineers?.classList.add('hidden');
-      contentEngineers?.classList.remove('block');
-    }
+      if (id === activeId) {
+        toggle?.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
+        toggle?.classList.remove('text-gray-600');
+        toggle?.setAttribute('aria-selected', 'true');
+        content?.classList.remove('hidden');
+        content?.classList.add('block');
+      } else {
+        toggle?.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
+        toggle?.classList.add('text-gray-600');
+        toggle?.setAttribute('aria-selected', 'false');
+        content?.classList.add('hidden');
+        content?.classList.remove('block');
+      }
+    });
   }
 
-  toggleEngineers?.addEventListener('click', () => setActiveTab(true));
-  toggleBizdev?.addEventListener('click', () => setActiveTab(false));
+  scopes.forEach(id => {
+    document.getElementById(`toggle-${id}`)?.addEventListener('click', () => setActiveScope(id));
+  });
 </script>

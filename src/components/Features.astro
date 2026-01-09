@@ -1,43 +1,43 @@
 ---
 const features = [
   {
-    title: 'Real-Time Suggestions',
-    description: 'Get contextual talking points and objection handlers as the conversation unfolds. Never be caught off guard.',
-    icon: 'lightbulb',
+    title: 'Pre-Meeting Briefings',
+    description: 'Get caught up in 2 minutes instead of 20. Past discussions, decisions, and context - delivered before you join.',
+    icon: 'briefing',
   },
   {
-    title: 'Meeting Preparation',
-    description: 'Automated research on prospects: tech stack, industry, past deals. Get briefings before every call.',
-    icon: 'clipboard',
+    title: 'Real-Time Context',
+    description: 'Relevant information surfaces as topics come up. Documents, decisions, action items - right when you need them.',
+    icon: 'lightning',
   },
   {
-    title: 'Knowledge Graph',
-    description: 'Your product knowledge, docs, and specs organized for instant retrieval during calls.',
+    title: 'Connected Memory',
+    description: 'Everything connected: people, decisions, documents, actions. Your copilot understands relationships.',
     icon: 'graph',
   },
   {
-    title: 'Auto Demo Generation',
-    description: 'After calls, AI generates working demos tailored to prospect needs. They can try it the same day.',
-    icon: 'code',
+    title: 'Post-Meeting Summaries',
+    description: 'Decisions captured, action items assigned, follow-ups tracked. No more "who was supposed to do that?"',
+    icon: 'summary',
   },
   {
     title: 'Smart Integrations',
-    description: 'Connect with your CRM, dashboards, and existing workflows. Per-client analysis out of the box.',
-    icon: 'workflow',
+    description: 'Connects to Confluence, Notion, Jira, GitHub, Slack, and more. Your knowledge, wherever it lives.',
+    icon: 'integration',
   },
   {
     title: 'Privacy First',
-    description: 'Audio processed in real-time and never stored. You control when the assistant is active.',
+    description: 'Audio processed in real-time and never stored. Your knowledge stays with your organization.',
     icon: 'lock',
   },
 ]
 
 const icons: Record<string, string> = {
-  lightbulb: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>',
-  clipboard: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>',
-  graph: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
-  code: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>',
-  workflow: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>',
+  briefing: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>',
+  lightning: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+  graph: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6h6M9 18h6M6 9v6M18 9v6"/>',
+  summary: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
+  integration: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>',
   lock: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>',
 }
 ---
@@ -46,16 +46,16 @@ const icons: Record<string, string> = {
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Built for Technical Sales
+        Everything You Need, When You Need It
       </h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Before, during, and after every call. From briefing to working demo.
+        Before, during, and after every meeting. Knowledge that compounds.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature) => (
-        <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
           <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <Fragment set:html={icons[feature.icon]} />

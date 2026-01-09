@@ -2,28 +2,28 @@
 const steps = [
   {
     number: '01',
-    title: 'Before the Call',
-    description: 'Get automated briefings on your prospect: their tech stack, industry context, and past interactions. Walk into every call prepared.',
-    icon: 'clipboard',
+    title: 'Before the Meeting',
+    description: 'Calendar synced. 30 min before, you get a briefing with past discussions, open items, and relevant context.',
+    icon: 'calendar',
   },
   {
     number: '02',
-    title: 'During the Call',
-    description: 'Real-time AI suggestions based on conversation context. Objection handlers, technical details, and talking points appear as you need them.',
+    title: 'During the Meeting',
+    description: 'As topics come up, context appears automatically. Past decisions, documents, people - right when needed.',
     icon: 'chat',
   },
   {
     number: '03',
-    title: 'After the Call',
-    description: 'AI generates working demos tailored to the prospect\'s requirements. They can try it the same day. You follow up with something real.',
-    icon: 'code',
+    title: 'After the Meeting',
+    description: 'Decisions captured, action items assigned, summary sent. Knowledge stored for the next meeting.',
+    icon: 'check',
   },
 ]
 
 const icons: Record<string, string> = {
-  clipboard: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>',
+  calendar: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>',
   chat: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>',
-  code: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>',
+  check: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
 }
 ---
 
@@ -34,17 +34,17 @@ const icons: Record<string, string> = {
         How It Works
       </h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        From preparation to working demo in three steps.
+        Your copilot handles the context. You focus on the conversation.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
       {steps.map((step, index) => (
-        <div class="relative">
+        <div class="relative flex">
           {index < steps.length - 1 && (
             <div class="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-brand-200" />
           )}
-          <div class="relative bg-white p-8 rounded-2xl shadow-sm text-center">
+          <div class="relative bg-white p-8 rounded-2xl shadow-sm text-center flex flex-col w-full">
             <div class="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <Fragment set:html={icons[step.icon]} />
@@ -52,7 +52,7 @@ const icons: Record<string, string> = {
             </div>
             <span class="text-sm font-bold text-brand-500 tracking-wider">{step.number}</span>
             <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">{step.title}</h3>
-            <p class="text-gray-600 leading-relaxed">{step.description}</p>
+            <p class="text-gray-600 leading-relaxed flex-grow">{step.description}</p>
           </div>
         </div>
       ))}
