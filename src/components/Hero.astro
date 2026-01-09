@@ -2,7 +2,7 @@
 const scopes = [
   {
     id: 'bizdev',
-    name: 'Business Dev',
+    name: 'Business Development',
     description: 'Past conversations, objection handling, competitor mentions - all surfaced in real-time.',
   },
   {
@@ -12,12 +12,12 @@ const scopes = [
   },
   {
     id: 'project',
-    name: 'Project Mgmt',
+    name: 'Project Management',
     description: 'Sprint commitments, blockers, dependencies - your copilot tracks it all.',
   },
   {
     id: 'product',
-    name: 'Product Mgmt',
+    name: 'Product Management',
     description: 'OKRs, PRDs, stakeholder priorities - always aligned with your goals.',
   }
 ];
@@ -35,39 +35,36 @@ const scopes = [
       It remembers what you discussed. Past decisions, context, people - surfaced exactly when you need them.
     </p>
 
-    <!-- Scope Tabs -->
-    <div class="mb-8">
-      <div class="inline-flex flex-wrap justify-center bg-gray-100 rounded-lg p-1" role="tablist">
-        {scopes.map((scope, index) => (
-          <button
-            id={`toggle-${scope.id}`}
-            role="tab"
-            aria-selected={index === 0 ? 'true' : 'false'}
-            class:list={[
-              'px-4 py-2 rounded-md text-sm font-medium transition-all cursor-pointer',
-              index === 0
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-            ]}
-          >
-            {scope.name}
-          </button>
-        ))}
-      </div>
-    </div>
-
-    <!-- Scope Content -->
-    <div class="h-16 mb-10">
+    <!-- Scope Carousel -->
+    <div id="scope-content" class="mb-10 cursor-pointer select-none h-24 md:h-20">
       {scopes.map((scope, index) => (
         <div
           id={`content-${scope.id}`}
           class:list={[
+            'transition-opacity duration-300',
             index === 0 ? 'block' : 'hidden'
           ]}
         >
-          <p class="text-lg text-gray-600 max-w-xl mx-auto">{scope.description}</p>
+          <p class="text-lg md:text-xl font-medium text-brand-500 mb-2">{scope.name}</p>
+          <p class="text-base md:text-lg text-gray-600 max-w-xl mx-auto">{scope.description}</p>
         </div>
       ))}
+    </div>
+
+    <!-- Carousel dots -->
+    <div class="mb-8">
+      <div class="flex justify-center gap-2">
+        {scopes.map((scope, index) => (
+          <button
+            id={`dot-${scope.id}`}
+            aria-label={scope.name}
+            class:list={[
+              'h-2 rounded-full transition-all cursor-pointer',
+              index === 0 ? 'bg-brand-500 w-6' : 'bg-gray-300 w-2'
+            ]}
+          />
+        ))}
+      </div>
     </div>
 
     <!-- CTAs -->
@@ -76,9 +73,9 @@ const scopes = [
         href="https://chrome.google.com/webstore"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 bg-brand-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
+        class="inline-flex items-center justify-center bg-brand-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
       >
-Get Started Free
+        Get Started Free
       </a>
       <a
         href="#how-it-works"
@@ -96,29 +93,89 @@ Get Started Free
 
 <script>
   const scopes = ['bizdev', 'architecture', 'project', 'product'];
+  let currentIndex = 0;
+  let autoRotateInterval: ReturnType<typeof setInterval> | null = null;
 
   function setActiveScope(activeId: string) {
+    currentIndex = scopes.indexOf(activeId);
+
     scopes.forEach(id => {
-      const toggle = document.getElementById(`toggle-${id}`);
+      const dot = document.getElementById(`dot-${id}`);
       const content = document.getElementById(`content-${id}`);
 
       if (id === activeId) {
-        toggle?.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
-        toggle?.classList.remove('text-gray-600');
-        toggle?.setAttribute('aria-selected', 'true');
+        dot?.classList.add('bg-brand-500', 'w-6');
+        dot?.classList.remove('bg-gray-300', 'w-2');
         content?.classList.remove('hidden');
         content?.classList.add('block');
       } else {
-        toggle?.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
-        toggle?.classList.add('text-gray-600');
-        toggle?.setAttribute('aria-selected', 'false');
+        dot?.classList.remove('bg-brand-500', 'w-6');
+        dot?.classList.add('bg-gray-300', 'w-2');
         content?.classList.add('hidden');
         content?.classList.remove('block');
       }
     });
   }
 
+  function nextScope() {
+    currentIndex = (currentIndex + 1) % scopes.length;
+    setActiveScope(scopes[currentIndex]);
+  }
+
+  function prevScope() {
+    currentIndex = (currentIndex - 1 + scopes.length) % scopes.length;
+    setActiveScope(scopes[currentIndex]);
+  }
+
+  // Click handlers for dots
   scopes.forEach(id => {
-    document.getElementById(`toggle-${id}`)?.addEventListener('click', () => setActiveScope(id));
+    document.getElementById(`dot-${id}`)?.addEventListener('click', () => {
+      setActiveScope(id);
+      resetAutoRotate();
+    });
   });
+
+  // Auto-rotate
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(nextScope, 4000);
+  }
+
+  function resetAutoRotate() {
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+    }
+    startAutoRotate();
+  }
+
+  // Start auto-rotate
+  startAutoRotate();
+
+  // Click on content to advance
+  const contentArea = document.getElementById('scope-content');
+
+  contentArea?.addEventListener('click', () => {
+    nextScope();
+    resetAutoRotate();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+
+  contentArea?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  contentArea?.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextScope();
+      } else {
+        prevScope();
+      }
+      resetAutoRotate();
+    }
+  }, { passive: true });
 </script>
