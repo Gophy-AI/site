@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro'
+---
+
+<Layout
+  title="Welcome to Gophy Pro"
+  description="Your payment was successful. You now have unlimited access to Gophy."
+>
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-md w-full text-center">
+      <!-- Success Icon -->
+      <div class="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome to Pro!</h1>
+      <p class="text-lg text-gray-600 mb-8">
+        Your payment was successful. You now have unlimited access to Gophy.
+      </p>
+
+      <!-- Features unlocked -->
+      <div class="bg-gray-50 rounded-xl p-6 mb-8 text-left">
+        <h2 class="font-semibold text-gray-900 mb-4">What's unlocked:</h2>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Unlimited meeting recordings</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Real-time AI suggestions</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Full meeting history access</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Priority support</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <p class="text-gray-600 mb-4">
+        Return to the Chrome extension to start using your Pro features.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 bg-brand-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-600 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+</Layout>
