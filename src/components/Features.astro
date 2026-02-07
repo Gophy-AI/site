@@ -1,68 +1,101 @@
 ---
-const features = [
+interface Feature {
+  title: string
+  description: string
+  icon: string
+  comingSoon?: boolean
+}
+
+const features: Feature[] = [
   {
-    title: 'Pre-Meeting Briefings',
-    description: 'Get caught up in 2 minutes instead of 20. Past discussions, decisions, and context - delivered before you join.',
-    icon: 'briefing',
+    title: 'Real-Time Transcription',
+    description: 'On-device speech-to-text with WhisperKit. Concurrent microphone and system audio capture with speaker diarization and voice activity detection.',
+    icon: 'microphone',
   },
   {
-    title: 'Real-Time Context',
-    description: 'Relevant information surfaces as topics come up. Documents, decisions, action items - right when you need them.',
-    icon: 'lightning',
+    title: 'On-Device AI Models',
+    description: 'MLX-powered language models run entirely on your Mac. Qwen for text generation, Qwen-VL for vision, E5 for embeddings. Your data never leaves your machine.',
+    icon: 'cpu',
   },
   {
-    title: 'Connected Memory',
-    description: 'Everything connected: people, decisions, documents, actions. Your copilot understands relationships.',
-    icon: 'graph',
+    title: 'Document RAG',
+    description: 'Upload PDFs, images, and text files. Automatic OCR, chunked indexing, and vector similarity search. Ask questions across all your documents and meetings.',
+    icon: 'document',
   },
   {
-    title: 'Post-Meeting Summaries',
-    description: 'Decisions captured, action items assigned, follow-ups tracked. No more "who was supposed to do that?"',
-    icon: 'summary',
+    title: 'Meeting Recording & Playback',
+    description: 'Full session recording with waveform timeline, speaker diarization overlay, and transcript-synchronized playback. Export transcripts with speaker labels.',
+    icon: 'play',
+  },
+  {
+    title: 'Google Calendar Integration',
+    description: 'OAuth sync with your calendar. Auto-start recording when meetings begin. Write AI-generated summaries back to calendar events.',
+    icon: 'calendar',
+  },
+  {
+    title: 'Contextual Suggestions',
+    description: 'AI-generated suggestions every 30 seconds during meetings, using your transcript and RAG context from documents and past meetings.',
+    icon: 'sparkles',
   },
   {
     title: 'Smart Integrations',
-    description: 'Connects to Confluence, Notion, Jira, GitHub, Slack, and more. Your knowledge, wherever it lives.',
-    icon: 'integration',
+    description: 'Connect with Confluence, Notion, Jira, GitHub, and Slack for seamless workflow integration.',
+    icon: 'puzzle',
+    comingSoon: true,
   },
   {
-    title: 'Privacy First',
-    description: 'Audio processed in real-time and never stored. Your knowledge stays with your organization.',
-    icon: 'lock',
+    title: 'Voice Commands',
+    description: 'Trigger tools by voice during meetings. Keyboard shortcuts and multi-turn AI tool calling for hands-free automation.',
+    icon: 'command',
+    comingSoon: true,
+  },
+  {
+    title: 'Chrome Extension',
+    description: 'Browser companion for web-based meeting platforms with real-time overlay and suggestions.',
+    icon: 'globe',
+    comingSoon: true,
   },
 ]
 
 const icons: Record<string, string> = {
-  briefing: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>',
-  lightning: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
-  graph: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6h6M9 18h6M6 9v6M18 9v6"/>',
-  summary: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
-  integration: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>',
-  lock: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>',
+  microphone: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />',
+  cpu: '<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />',
+  document: '<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />',
+  play: '<path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />',
+  calendar: '<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />',
+  sparkles: '<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />',
+  puzzle: '<path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />',
+  command: '<path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />',
+  globe: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.467.732-3.558" />',
 }
 ---
 
-<section id="features" class="py-20 bg-gray-50">
+<section id="features" class="py-20">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Everything You Need, When You Need It
+      <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        Features
       </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Before, during, and after every meeting. Knowledge that compounds.
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Everything you need for smarter meetings
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {features.map((feature) => (
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <Fragment set:html={icons[feature.icon]} />
-            </svg>
+        <div class:list={['card p-6', { 'opacity-60': feature.comingSoon }]}>
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <Fragment set:html={icons[feature.icon]} />
+              </svg>
+            </div>
+            {feature.comingSoon && (
+              <span class="badge text-xs">Coming Soon</span>
+            )}
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-          <p class="text-gray-600 leading-relaxed">{feature.description}</p>
+          <h3 class="font-semibold text-foreground mb-2">{feature.title}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
         </div>
       ))}
     </div>

@@ -1,58 +1,61 @@
 ---
 const steps = [
   {
-    number: '01',
-    title: 'Before the Meeting',
-    description: 'Calendar synced. 30 min before, you get a briefing with past discussions, open items, and relevant context.',
-    icon: 'calendar',
+    number: 1,
+    title: 'Download & Setup',
+    description:
+      'Install the native macOS app and download on-device AI models — WhisperKit for transcription, Qwen for text generation, E5 for semantic search. Connect your Google Calendar. Everything runs locally on Apple Silicon.',
   },
   {
-    number: '02',
-    title: 'During the Meeting',
-    description: 'As topics come up, context appears automatically. Past decisions, documents, people - right when needed.',
-    icon: 'chat',
+    number: 2,
+    title: 'Record & Transcribe',
+    description:
+      'Start a meeting manually or let it auto-start from your calendar. Get real-time transcription with speaker diarization. Upload documents for RAG context. Receive contextual AI suggestions as topics come up.',
   },
   {
-    number: '03',
-    title: 'After the Meeting',
-    description: 'Decisions captured, action items assigned, summary sent. Knowledge stored for the next meeting.',
-    icon: 'check',
+    number: 3,
+    title: 'Review & Search',
+    description:
+      'Browse meeting history with full transcripts and speaker labels. Search across all meetings and documents with AI-powered semantic search. Export transcripts and summaries.',
   },
 ]
-
-const icons: Record<string, string> = {
-  calendar: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>',
-  chat: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>',
-  check: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
-}
 ---
 
-<section id="how-it-works" class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4">
+<section id="how-it-works" class="py-20 bg-background">
+  <div class="max-w-2xl mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
         How It Works
       </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Your copilot handles the context. You focus on the conversation.
+      <p class="text-lg text-muted-foreground">
+        From download to insight in minutes
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8 items-stretch">
+    <div class="relative">
       {steps.map((step, index) => (
-        <div class="relative flex">
+        <div class="relative flex items-start gap-6 pb-12 last:pb-0">
+          {/* Vertical connecting line */}
           {index < steps.length - 1 && (
-            <div class="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-brand-200" />
+            <div
+              class="absolute left-5 top-10 bottom-0 border-l-2 border-border"
+              aria-hidden="true"
+            />
           )}
-          <div class="relative bg-white p-8 rounded-2xl shadow-sm text-center flex flex-col w-full">
-            <div class="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <Fragment set:html={icons[step.icon]} />
-              </svg>
-            </div>
-            <span class="text-sm font-bold text-brand-500 tracking-wider">{step.number}</span>
-            <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">{step.title}</h3>
-            <p class="text-gray-600 leading-relaxed flex-grow">{step.description}</p>
+
+          {/* Number circle */}
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm">
+            {step.number}
+          </div>
+
+          {/* Content */}
+          <div class="pt-1">
+            <h3 class="text-lg font-semibold text-foreground mb-2">
+              {step.title}
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              {step.description}
+            </p>
           </div>
         </div>
       ))}
@@ -60,12 +63,12 @@ const icons: Record<string, string> = {
 
     <div class="mt-12 text-center">
       <a
-        href="https://chrome.google.com/webstore"
+        href="https://github.com/gophy-ai/desktop/releases/latest"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 bg-brand-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
+        class="btn-primary text-base px-8 py-3"
       >
-        Get Started Free
+        Download for macOS
       </a>
     </div>
   </div>

@@ -9,95 +9,117 @@ import Footer from '../components/Footer.astro'
   description="Terms of Service for Gophy. Read our terms and conditions."
 >
   <Header />
-  <main class="pt-24 pb-16">
+  <main class="pt-24 pb-16 bg-background text-foreground">
     <div class="max-w-3xl mx-auto px-4">
-      <h1 class="text-4xl font-bold text-gray-900 mb-8">Terms of Service</h1>
-      <p class="text-gray-600 mb-8">Last updated: January 2026</p>
+      <h1 class="text-4xl font-bold text-foreground mb-4">Terms of Service</h1>
+      <p class="text-muted-foreground mb-8">Last updated: February 2026</p>
 
-      <div class="prose prose-gray max-w-none">
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">1. Acceptance of Terms</h2>
-        <p class="text-gray-600 mb-4">
-          By accessing or using Gophy ("Service"), you agree to be bound by these
-          Terms of Service. If you do not agree, do not use the Service.
-        </p>
+      <div class="space-y-8">
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">1. Acceptance of Terms</h2>
+          <p class="text-muted-foreground">
+            By downloading, installing, or using Gophy ("Software"), you agree to be bound by these
+            Terms of Service. If you do not agree, do not use the Software.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">2. Description of Service</h2>
-        <p class="text-gray-600 mb-4">
-          Gophy is an AI-powered assistant for technical sales professionals.
-          The Service provides real-time suggestions during video calls, meeting preparation,
-          and automated demo code generation.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">2. Description of Software</h2>
+          <p class="text-muted-foreground">
+            Gophy is a native macOS application for AI-powered meeting assistance.
+            The Software provides real-time transcription, contextual suggestions, document
+            analysis, and meeting preparation -- all processed locally on your device using
+            on-device AI models.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3. User Accounts</h2>
-        <p class="text-gray-600 mb-4">
-          You must create an account to use the Service. You are responsible for maintaining
-          the confidentiality of your account and for all activities under your account.
-          You must be at least 18 years old to use the Service.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">3. License</h2>
+          <p class="text-muted-foreground">
+            We grant you a limited, non-exclusive, non-transferable, revocable license to use
+            the Software on devices you own or control, subject to these Terms. You may not
+            sublicense, distribute, or make the Software available to third parties.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">4. Acceptable Use</h2>
-        <p class="text-gray-600 mb-4">You agree not to:</p>
-        <ul class="list-disc pl-6 text-gray-600 mb-4 space-y-2">
-          <li>Use the Service for any unlawful purpose</li>
-          <li>Record or store meeting content without consent of all participants</li>
-          <li>Attempt to reverse engineer or extract our AI models</li>
-          <li>Share your account credentials with others</li>
-          <li>Use the Service to harass, abuse, or harm others</li>
-        </ul>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">4. Acceptable Use</h2>
+          <p class="text-muted-foreground mb-4">You agree not to:</p>
+          <ul class="list-disc pl-6 text-muted-foreground space-y-2">
+            <li>Use the Software for any unlawful purpose</li>
+            <li>Record or store meeting content without consent of all participants</li>
+            <li>Attempt to reverse engineer, decompile, or extract the AI models bundled with the Software</li>
+            <li>Redistribute or resell the Software or any part thereof</li>
+            <li>Use the Software to harass, abuse, or harm others</li>
+          </ul>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">5. Subscription and Billing</h2>
-        <h3 class="text-xl font-medium text-gray-900 mt-6 mb-3">5.1 Free Tier</h3>
-        <p class="text-gray-600 mb-4">
-          The free tier includes 1 meeting with a 30-minute limit. No credit card required.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">5. Third-Party Services</h2>
+          <p class="text-muted-foreground">
+            The Software may integrate with third-party services such as Google Calendar
+            and cloud AI providers. Your use of those services is subject to their
+            respective terms and privacy policies. We are not responsible for the
+            availability, accuracy, or conduct of any third-party service.
+          </p>
+        </section>
 
-        <h3 class="text-xl font-medium text-gray-900 mt-6 mb-3">5.2 Paid Subscriptions</h3>
-        <p class="text-gray-600 mb-4">
-          Paid subscriptions are billed monthly. You may cancel at any time, and your
-          subscription will remain active until the end of the billing period.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">6. Intellectual Property</h2>
+          <p class="text-muted-foreground">
+            The Software, including all content, features, AI models, and functionality, is owned by
+            Gophy and protected by copyright and other intellectual property laws. These Terms
+            do not grant you any rights to our trademarks, logos, or brand assets.
+          </p>
+        </section>
 
-        <h3 class="text-xl font-medium text-gray-900 mt-6 mb-3">5.3 Refunds</h3>
-        <p class="text-gray-600 mb-4">
-          We offer a 14-day money-back guarantee for first-time subscribers. Contact
-          support to request a refund.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">7. Disclaimer of Warranties</h2>
+          <p class="text-muted-foreground">
+            The Software is provided "as is" without warranties of any kind, express or implied.
+            We do not guarantee that AI-generated transcriptions or suggestions will be accurate,
+            complete, or suitable for your specific needs. You are responsible for reviewing all
+            output before relying on it.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">6. Intellectual Property</h2>
-        <p class="text-gray-600 mb-4">
-          The Service, including all content, features, and functionality, is owned by
-          Gophy and protected by copyright and other intellectual property laws.
-          Generated demo code is licensed to you for your use with prospects.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">8. Limitation of Liability</h2>
+          <p class="text-muted-foreground">
+            To the maximum extent permitted by law, Gophy shall not be liable for
+            any indirect, incidental, special, consequential, or punitive damages resulting
+            from your use of or inability to use the Software, including but not limited to
+            loss of data, business interruption, or inaccurate AI output.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">7. Disclaimer of Warranties</h2>
-        <p class="text-gray-600 mb-4">
-          The Service is provided "as is" without warranties of any kind. We do not
-          guarantee that AI suggestions will be accurate, complete, or suitable for
-          your specific needs. You are responsible for reviewing all suggestions before use.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">9. Termination</h2>
+          <p class="text-muted-foreground">
+            You may stop using the Software at any time by uninstalling it from your device.
+            We reserve the right to revoke your license if you violate these Terms. Upon
+            termination, all rights granted to you under these Terms cease immediately.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">8. Limitation of Liability</h2>
-        <p class="text-gray-600 mb-4">
-          To the maximum extent permitted by law, Gophy shall not be liable for
-          any indirect, incidental, special, consequential, or punitive damages resulting
-          from your use of the Service.
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">10. Changes to Terms</h2>
+          <p class="text-muted-foreground">
+            We may update these Terms from time to time. Updated Terms will be posted on our
+            website. Continued use of the Software after changes constitutes acceptance of
+            the new Terms.
+          </p>
+        </section>
 
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">9. Changes to Terms</h2>
-        <p class="text-gray-600 mb-4">
-          We may update these Terms from time to time. We will notify you of material
-          changes via email or through the Service. Continued use after changes constitutes
-          acceptance of the new Terms.
-        </p>
-
-        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">10. Contact</h2>
-        <p class="text-gray-600 mb-4">
-          For questions about these Terms, contact us at:
-          <a href="mailto:legal@gophy.ai" class="text-brand-500 hover:underline">
-            legal@gophy.ai
-          </a>
-        </p>
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-4">11. Contact</h2>
+          <p class="text-muted-foreground">
+            For questions about these Terms, contact us at:
+            <a href="mailto:legal@gophy.ai" class="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
+              legal@gophy.ai
+            </a>
+          </p>
+        </section>
       </div>
     </div>
   </main>

@@ -9,12 +9,170 @@
   }
 }
 
-/* Brand colors - aligned with icon */
+/* shadcn/ui design tokens — zinc/neutral preset (light) */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.5rem;
+}
+
+/* Zinc palette mapped to brand-* tokens for backwards compat */
 @theme {
-  --color-brand-50: #EBF3FE;
-  --color-brand-100: #D3E4FD;
-  --color-brand-200: #A8C7FA;
-  --color-brand-500: #4285F4;
-  --color-brand-600: #3B78E0;
-  --color-brand-700: #2E6AC7;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-brand-50: #fafafa;
+  --color-brand-100: #f4f4f5;
+  --color-brand-200: #e4e4e7;
+  --color-brand-300: #d4d4d8;
+  --color-brand-400: #a1a1aa;
+  --color-brand-500: #18181b;
+  --color-brand-600: #09090b;
+  --color-brand-700: #09090b;
+
+  --color-background: #ffffff;
+  --color-foreground: #09090b;
+  --color-card: #ffffff;
+  --color-card-foreground: #09090b;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
+  --color-accent: #f4f4f5;
+  --color-accent-foreground: #09090b;
+  --color-destructive: #ef4444;
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #18181b;
+  --color-primary: #18181b;
+  --color-primary-foreground: #fafafa;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
+}
+
+/* shadcn-style base resets */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* shadcn-inspired utility components */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transition: opacity 0.15s;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  transition: opacity 0.15s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-foreground);
+  transition: background-color 0.15s;
+  &:hover {
+    background-color: var(--color-accent);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  background-color: transparent;
+  color: var(--color-foreground);
+  transition: background-color 0.15s;
+  &:hover {
+    background-color: var(--color-accent);
+  }
+}
+
+@utility card {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@utility badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+
+@utility badge-primary {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.625rem;
+  border: 1px solid transparent;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
 }
