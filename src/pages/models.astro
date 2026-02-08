@@ -17,7 +17,7 @@ interface ModelCategory {
 const localModels: ModelCategory[] = [
   {
     title: 'Speech-to-Text',
-    description: '8 on-device models for real-time transcription with speaker diarization and voice activity detection.',
+    description: '9 on-device models for real-time transcription with speaker diarization and voice activity detection.',
     models: [
       { name: 'WhisperKit large-v3-turbo', id: 'argmaxinc/whisperkit-coreml-large-v3-turbo' },
       { name: 'Whisper Large v3 (MLX)', id: 'mlx-community/whisper-large-v3' },
@@ -27,6 +27,7 @@ const localModels: ModelCategory[] = [
       { name: 'Qwen3 ASR', id: 'Qwen/Qwen3-ASR' },
       { name: 'Wav2Vec2 Large 960h', id: 'facebook/wav2vec2-large-960h-lv60-self' },
       { name: 'Voxtral Mini 3B', id: 'mlx-community/Voxtral-Mini-3B-2507-bf16' },
+      { name: 'Voxtral Mini 4B Realtime', id: 'mlx-community/Voxtral-Mini-4B-Realtime-6bit' },
     ],
   },
   {
@@ -98,14 +99,14 @@ const cloudProviders: CloudProvider[] = [
 
 <Layout
   title="Models - Gophy"
-  description="All AI models supported by Gophy. 30+ local on-device models and 9 cloud providers for speech-to-text, text generation, vision, embeddings, and text-to-speech."
+  description="All AI models supported by Gophy. 31+ local on-device models and 9 cloud providers for speech-to-text, text generation, vision, embeddings, and text-to-speech."
 >
   <Header />
   <main class="pt-24 pb-16 bg-background text-foreground">
     <div class="max-w-3xl mx-auto px-4">
       <h1 class="text-4xl font-bold text-foreground mb-4">Supported Models</h1>
       <p class="text-muted-foreground mb-8">
-        30+ local on-device models via MLX and WhisperKit, plus 9 cloud providers.
+        31+ local on-device models via MLX and WhisperKit, plus 9 cloud providers.
         All local models run entirely on your Mac. Models are downloaded on demand.
       </p>
 
