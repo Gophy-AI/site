@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+interface Model {
+  name: string
+  id: string
+}
+
+interface ModelCategory {
+  title: string
+  description: string
+  models: Model[]
+}
+
+const localModels: ModelCategory[] = [
+  {
+    title: 'Speech-to-Text',
+    description: '8 on-device models for real-time transcription with speaker diarization and voice activity detection.',
+    models: [
+      { name: 'WhisperKit large-v3-turbo', id: 'argmaxinc/whisperkit-coreml-large-v3-turbo' },
+      { name: 'Whisper Large v3 (MLX)', id: 'mlx-community/whisper-large-v3' },
+      { name: 'GLM-ASR Large v2', id: 'THUDM/glm-4-voice-tokenizer' },
+      { name: 'LASR CTC Large', id: 'DeweyReed/LASR-CTC-large-v1' },
+      { name: 'Parakeet CTC 1.1B', id: 'nvidia/parakeet-ctc-1.1b' },
+      { name: 'Qwen3 ASR', id: 'Qwen/Qwen3-ASR' },
+      { name: 'Wav2Vec2 Large 960h', id: 'facebook/wav2vec2-large-960h-lv60-self' },
+      { name: 'Voxtral Mini 3B', id: 'mlx-community/Voxtral-Mini-3B-2507-bf16' },
+    ],
+  },
+  {
+    title: 'Text-to-Speech',
+    description: '5 on-device models for natural speech synthesis.',
+    models: [
+      { name: 'Soprano 80M', id: 'mlx-community/Soprano-80M-bf16' },
+      { name: 'Marvis TTS 250M', id: 'Marvis-AI/marvis-tts-250m-v0.2-MLX-8bit' },
+      { name: 'Orpheus 3B', id: 'mlx-community/orpheus-3b-0.1-ft-bf16' },
+      { name: 'VyvoTTS EN', id: 'mlx-community/VyvoTTS-EN-Beta-4bit' },
+      { name: 'PocketTTS', id: 'mlx-community/pocket-tts' },
+    ],
+  },
+  {
+    title: 'Text Generation',
+    description: 'Local language models for contextual suggestions and meeting analysis. Additional models available via the MLX LLM registry.',
+    models: [
+      { name: 'Qwen2.5 7B Instruct 4-bit', id: 'mlx-community/Qwen2.5-7B-Instruct-4bit' },
+      { name: 'Qwen3 8B Instruct 4-bit', id: 'mlx-community/Qwen3-8B-4bit' },
+    ],
+  },
+  {
+    title: 'Vision / OCR',
+    description: 'Vision-language models for document OCR and image understanding. Additional models available via the MLX VLM registry.',
+    models: [
+      { name: 'Qwen2.5-VL 7B Instruct 4-bit', id: 'mlx-community/Qwen2.5-VL-7B-Instruct-4bit' },
+    ],
+  },
+  {
+    title: 'Embeddings',
+    description: '15 embedding models for semantic search across documents and meetings.',
+    models: [
+      { name: 'Multilingual E5 Small', id: 'intfloat/multilingual-e5-small' },
+      { name: 'BGE Micro v2', id: 'TaylorAI/bge-micro-v2' },
+      { name: 'GTE Tiny', id: 'TaylorAI/gte-tiny' },
+      { name: 'MiniLM-L6-v2', id: 'sentence-transformers/all-MiniLM-L6-v2' },
+      { name: 'Arctic Embed XS', id: 'Snowflake/snowflake-arctic-embed-xs' },
+      { name: 'MiniLM-L12-v2', id: 'sentence-transformers/all-MiniLM-L12-v2' },
+      { name: 'BGE Small EN v1.5', id: 'BAAI/bge-small-en-v1.5' },
+      { name: 'BGE Base EN v1.5', id: 'BAAI/bge-base-en-v1.5' },
+      { name: 'Nomic Embed Text v1', id: 'nomic-ai/nomic-embed-text-v1' },
+      { name: 'Nomic Embed Text v1.5', id: 'nomic-ai/nomic-embed-text-v1.5' },
+      { name: 'BGE Large EN v1.5', id: 'BAAI/bge-large-en-v1.5' },
+      { name: 'Arctic Embed L', id: 'Snowflake/snowflake-arctic-embed-l' },
+      { name: 'BGE M3', id: 'BAAI/bge-m3' },
+      { name: 'MXBAI Embed Large v1', id: 'mixedbread-ai/mxbai-embed-large-v1' },
+      { name: 'Qwen3 Embedding 0.6B 4-bit', id: 'mlx-community/Qwen3-Embedding-0.6B-4bit-DWQ' },
+    ],
+  },
+]
+
+interface CloudProvider {
+  name: string
+  capabilities: string[]
+}
+
+const cloudProviders: CloudProvider[] = [
+  { name: 'OpenAI', capabilities: ['Text Generation', 'Vision', 'Embeddings', 'Speech-to-Text'] },
+  { name: 'Google Gemini', capabilities: ['Text Generation', 'Vision', 'Embeddings'] },
+  { name: 'Anthropic', capabilities: ['Text Generation', 'Vision'] },
+  { name: 'Groq', capabilities: ['Text Generation', 'Speech-to-Text'] },
+  { name: 'Together AI', capabilities: ['Text Generation'] },
+  { name: 'Mistral AI', capabilities: ['Text Generation', 'Vision', 'Embeddings'] },
+  { name: 'DeepSeek', capabilities: ['Text Generation'] },
+  { name: 'Fireworks AI', capabilities: ['Text Generation'] },
+  { name: 'OpenRouter', capabilities: ['Text Generation'] },
+]
+---
+
+<Layout
+  title="Models - Gophy"
+  description="All AI models supported by Gophy. 30+ local on-device models and 9 cloud providers for speech-to-text, text generation, vision, embeddings, and text-to-speech."
+>
+  <Header />
+  <main class="pt-24 pb-16 bg-background text-foreground">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-foreground mb-4">Supported Models</h1>
+      <p class="text-muted-foreground mb-8">
+        30+ local on-device models via MLX and WhisperKit, plus 9 cloud providers.
+        All local models run entirely on your Mac. Models are downloaded on demand.
+      </p>
+
+      <div class="space-y-8">
+        {localModels.map((category) => (
+          <section class="card p-6">
+            <h2 class="text-2xl font-semibold text-foreground mb-2">{category.title}</h2>
+            <p class="text-sm text-muted-foreground mb-4">{category.description}</p>
+            <ul class="space-y-3">
+              {category.models.map((model) => (
+                <li>
+                  <a
+                    href={`https://huggingface.co/${model.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-foreground font-medium underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                  >
+                    {model.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        <section class="card p-6">
+          <h2 class="text-2xl font-semibold text-foreground mb-2">Cloud Providers</h2>
+          <p class="text-sm text-muted-foreground mb-4">
+            Each AI capability can independently use a local model or a cloud provider. Bring your own API key.
+          </p>
+          <ul class="space-y-4">
+            {cloudProviders.map((provider) => (
+              <li class="flex items-center gap-4">
+                <span class="text-foreground font-medium shrink-0">{provider.name}</span>
+                <div class="flex flex-wrap gap-2">
+                  {provider.capabilities.map((cap) => (
+                    <span class="badge text-xs">{cap}</span>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -4,18 +4,20 @@ interface Feature {
   description: string
   icon: string
   comingSoon?: boolean
+  link?: string
 }
 
 const features: Feature[] = [
   {
     title: 'Real-Time Transcription',
-    description: 'On-device speech-to-text with WhisperKit. Concurrent microphone and system audio capture with speaker diarization and voice activity detection.',
+    description: 'On-device speech-to-text with 8+ models to choose from. Concurrent microphone and system audio capture with speaker diarization and voice activity detection.',
     icon: 'microphone',
   },
   {
     title: 'On-Device AI Models',
-    description: 'MLX-powered language models run entirely on your Mac. Qwen for text generation, Qwen-VL for vision, E5 for embeddings. Your data never leaves your machine.',
+    description: '30+ local models run entirely on your Mac via MLX — text generation, vision, embeddings, speech-to-text, and text-to-speech. Your data never leaves your machine.',
     icon: 'cpu',
+    link: '/models',
   },
   {
     title: 'Document RAG',
@@ -34,7 +36,7 @@ const features: Feature[] = [
   },
   {
     title: 'Contextual Suggestions',
-    description: 'AI-generated suggestions every 30 seconds during meetings, using your transcript and RAG context from documents and past meetings.',
+    description: 'AI-generated suggestions every 30 seconds during meetings, using your transcript and RAG context from documents and past meetings. 9 cloud providers supported.',
     icon: 'sparkles',
   },
   {
@@ -96,6 +98,11 @@ const icons: Record<string, string> = {
           </div>
           <h3 class="font-semibold text-foreground mb-2">{feature.title}</h3>
           <p class="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+          {feature.link && (
+            <a href={feature.link} class="inline-block mt-3 text-sm text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
+              See all models &rarr;
+            </a>
+          )}
         </div>
       ))}
     </div>
